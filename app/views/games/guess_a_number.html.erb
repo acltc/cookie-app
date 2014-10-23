@@ -1,0 +1,17 @@
+<div class="jumbotron" %>
+  <h1>Guess a number!</h1>
+
+  <h2>I am thinking of a number between 1 and 100. Guess what it is!</h2>
+
+  <%= form_tag '/submit' do %>
+    <div>
+      <%= label_tag :number %>
+      <%= text_field_tag :number %>
+    </div> 
+
+    <div>
+      <%= submit_tag "Here's my guess!" %>
+    </div>
+
+  <% end %>
+</div>
