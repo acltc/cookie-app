@@ -1,13 +1,11 @@
 class GamesController < ApplicationController
   def guess_a_number
-
-  end
-
-  def submit_number
     if cookies[:secret_number].nil?
       cookies[:secret_number] = rand(1..100)
     end
+  end
 
+  def submit_number
     secret_number = cookies[:secret_number].to_i
     
     if cookies[:number_of_guesses]
@@ -23,14 +21,14 @@ class GamesController < ApplicationController
       flash[:warning] = @message = "Too high! Guess lower."
       flash[:info] = "You have made #{cookies[:number_of_guesses]} guesses so far."
     elsif secret_number == params[:number].to_i
-      flash[:success] = "You win! The correct number was indeed #{secret_number}!"
+      flash[:success] = "You win! The correct number was indeed #{secret_number}! You got it in #{cookies[:number_of_guesses]} guesses!"
     end
 
     redirect_to '/'
   end
 
   def reset
-    cookies[:secret_number] = nil
+    cookies[:secret_number] = rand(1..100)
     cookies[:number_of_guesses] = 0
     flash[:success] = "New game! Begin playing."
     redirect_to '/'
