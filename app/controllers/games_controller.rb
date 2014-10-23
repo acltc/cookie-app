@@ -28,4 +28,11 @@ class GamesController < ApplicationController
 
     redirect_to '/'
   end
+
+  def reset
+    cookies[:secret_number] = nil
+    cookies[:number_of_guesses] = 0
+    flash[:success] = "New game! Begin playing."
+    redirect_to '/'
+  end
 end

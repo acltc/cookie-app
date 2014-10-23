@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'games#guess_a_number'
   post '/submit' => 'games#submit_number'
+  get '/reset-game' => 'games#reset'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -10,8 +10,12 @@
     </div> 
 
     <div>
-      <%= submit_tag "Here's my guess!" %>
+      <%= submit_tag "Here's my guess!", class: 'btn btn-primary' %>
     </div>
 
   <% end %>
+
+  <div>
+    <a href="/reset-game" class="btn btn-danger">New Game</a>
+  </div>
 </div>
